@@ -108,7 +108,7 @@ document.addEventListener("DOMContentLoaded", () => {
             <img
                 src="/STREETREP/${o.imagem}"
                 alt="Imagem da ocorrência"
-                class="ocorrencia_imagem mb-2"
+                class="ocorrencia_imagem mb-2" style="max-width: 100%; height: auto; border-radius: 5px;"
             />
         ` : ''}
 
