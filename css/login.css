@@ -1,0 +1,13 @@
+html body {
+    background-color: #1A1A1D !important;
+}
+
+#streetrep_logo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    align-self: center;
+    margin: auto;
+}

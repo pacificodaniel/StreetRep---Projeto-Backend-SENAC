@@ -1,0 +1,432 @@
+@import url('https://fonts.googleapis.com/css2?family=Merriweather:ital,opsz,wght@0,18..144,300..900;1,18..144,300..900&family=Oswald:wght@200..700&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+body {
+    background-repeat: no-repeat;
+    background-position: cover;
+    background-size: cover;
+    background-color: #111;
+    margin: 0;
+    padding: 0;
+    /* fundo preto padrão */
+}
+
+
+/* ===========================
+   HEADER
+=========================== */
+
+header {
+    width: 100%;
+    height: 300px;
+    background-color: #1A1A1D;
+    box-shadow: 0 10px 20px -10px rgba(0, 0, 0, 0.5);
+    margin-bottom: -40px;
+}
+
+/* =====================================================
+   MENU PRINCIPAL (DESKTOP)
+   ===================================================== */
+
+.menu_header {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    height: 50px;
+    margin-top: 50px;
+}
+
+.menu_header a {
+    text-decoration: none;
+    color: white;
+    font-size: 30px;
+    padding: 10px 15px;
+    border-radius: 5px;
+    margin-top: -12px;
+}
+
+/* Hover padrão do menu */
+.menu_header a:hover {
+    color: #F59E0B;
+    transition: 0.3s;
+}
+
+/* =====================================================
+   MENU – ESTILO VISUAL (BOTÕES COM FUNDO)
+   ===================================================== */
+
+.menu_header a {
+    background-color: #222;
+    color: #fff;
+    transition: all 0.3s ease;
+    border-radius: 6px;
+    padding: 10px 20px;
+    font-size: 25px !important;
+}
+
+.menu_header a:hover {
+    background-color: #F59E0B;
+    color: #000;
+}
+
+/* Item ativo (classe ou ID legado) */
+.menu_header a.active {
+    background-color: #F59E0B !important;
+    color: #000 !important;
+}
+#a_suas_avaliacoes {
+    background-color: #F59E0B !important;
+    color: #000 !important;
+}
+
+
+.menu_header a:hover {
+    color: #F59E0B;
+
+    transition: 0.3s;
+}
+
+header p {
+    color: white;
+    text-align: center;
+}
+
+#logo_a {
+    color: white;
+    text-align: center;
+    font-size: 40px;
+    padding-top: 10px;
+    font-family: Impact, Charcoal, 'Arial Narrow Bold', sans-serif;
+    letter-spacing: 2px;
+    text-shadow: 2px 2px 0 #000000, 4px 4px 8px rgba(0, 0, 0, 0.5);
+    transition: all 0.3s ease;
+    text-decoration: none;
+}
+
+#logo_a:hover {
+    color: #fdd835;
+    text-shadow: 0 0 5px #fdd835, 0 0 10px #fdd835, 0 0 20px #fdd835, 0 0 40px #fdd835, 0 0 60px #fdd835, 2px 2px 2px #000000;
+    -webkit-text-stroke: 0.5px #000000;
+}
+
+.page_logo {
+    margin-left: 0;
+    margin-bottom: 40px;
+}
+
+.header_area1 {
+    width: 100%;
+    height: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 20px;
+    padding-left: 40px;
+}
+
+.header_area1 a {
+    text-align: center;
+    margin-top: 0;
+    margin-left: 0;
+    font-family: 'Oswald', sans-serif;
+}
+
+.login_information {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    position: absolute;
+    right: 60px;
+    top: 30px;
+    gap: 5px;
+}
+
+.login_information a {
+    margin-top: 50px;
+    color: black;
+}
+
+.menu_header_links {
+    position: relative;
+}
+
+#button_sair_page1 {
+   width: 90px;
+    color: white;
+    font-size: 18px;
+    margin-top: 100px;
+    margin-left: 0px;
+}
+
+#button_sair_page1:hover {
+    color: #1b1b1b;
+    transition: 0.3s;
+}
+
+#a_suas_avaliacoes {
+    color: #F59E0B;
+}
+
+
+/* ===========================
+   MAIN
+=========================== */
+
+#input_map_location {
+    width: 800px;
+}
+
+.content1 {
+    display: flex;
+    justify-content: center;
+    background-color: #111;
+}
+
+main {
+    text-align: center;
+    width: 100%;
+    min-height: 80vh;
+    background-color: #111;
+    /* remove fundo branco */
+    padding-bottom: 20px;
+}
+
+
+/* Cards de ocorrências */
+
+.ocorrencia_content {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    margin: 40px auto;
+    width: 90%;
+    max-width: 800px;
+    padding-top: 20px;
+    
+    
+}
+
+.ocorrencia_item {
+    background-color: #161616 !important;
+    border-radius: 10px;
+    border: 10px solid #1a1a1a6b;
+    /* borda discreta */
+    color: white;
+    padding: 10px;
+    border-left: 4px solid #ffc107;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    /* sombra leve para destaque */
+    padding-top: 20px !important;
+    margin-bottom: 10px !important;
+    margin-top: 30px;
+}
+
+
+/* ===========================
+   FORMULÁRIO DE OCORRÊNCIA
+=========================== */
+
+#formOcorrencia {
+    position: absolute;
+    display: none;
+    background: #222;
+    /* fundo escuro em vez de branco */
+    color: white;
+    padding: 1rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(49, 49, 49, 0.3);
+    z-index: 1000;
+    min-width: 250px;
+    border: 2px solid #fdd835;
+}
+
+
+/* ===========================
+   COMENTÁRIOS
+=========================== */
+
+.comentarios-lateral {
+    position: fixed;
+    right: 0;
+    top: 0;
+    width: 350px;
+    height: 100%;
+    background: #111;
+    color: #fff;
+    border-left: 2px solid #ffc107;
+    padding: 15px;
+    overflow-y: auto;
+    display: none;
+    z-index: 9999;
+}
+
+.comentarios-lateral h4 {
+    color: #ffc107;
+}
+
+.comentarios-lateral textarea {
+    background: #222;
+    color: #fff;
+    border: 1px solid #ffc107;
+}
+
+.comentarios-lateral button.btn-warning {
+    background: #ffc107;
+    border-color: #ffc107;
+    color: #111;
+}
+
+
+/* ===========================
+   FOOTER
+=========================== */
+
+footer {
+    width: 100%;
+    height: 300px;
+    background-color: #1c1c1c;
+    box-shadow: 0 -10px 20px -10px rgba(0, 0, 0, 0.5);
+    text-align: center;
+    padding-top: 40px;
+    position: relative;
+    bottom: 0;
+    left: 0;
+}
+
+.site-footer {
+    background-color: #111;
+    color: #fff;
+    padding: 40px 20px;
+    font-family: Arial, sans-serif;
+    font-size: 14px;
+}
+
+.footer-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.footer-section {
+    flex: 1 1 200px;
+    margin: 10px;
+}
+
+.footer-section h4 {
+    color: #fdd835;
+    margin-bottom: 10px;
+    font-size: 16px;
+    text-transform: uppercase;
+}
+
+.footer-section ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-section ul li {
+    margin-bottom: 8px;
+}
+
+.footer-section ul li a {
+    color: #fff;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.footer-section ul li a:hover {
+    color: #fdd835;
+}
+
+.social-links li {
+    display: inline-block;
+    margin-right: 10px;
+}
+
+/* =====================================================
+   RESPONSIVIDADE (MOBILE)
+   ===================================================== */
+
+@media (max-width: 768px) {
+
+    header {
+        height: 1000px;
+        padding-bottom: 20px;
+        text-align: center;
+    }
+
+    .header_area1 {
+        flex-direction: column;
+        align-items: center;
+        height: 200px;
+        margin-bottom: 300px;
+    }
+
+    .page_logo {
+        margin: 0;
+        width: 180px !important;
+        height: auto !important;
+        margin-bottom: -40px;
+    }
+
+    #logo_a {
+        font-size: 28px;
+        margin-top: 10px;
+    }
+
+    .menu_header {
+        flex-direction: column;
+        gap: 10px;
+        margin-top: 20px;
+        height: auto;
+        width: 100%;
+        align-items: center;
+    }
+
+    .menu_header a {
+        font-size: 20px;
+        width: 90%;
+        background: #222;
+        padding: 12px 0;
+        border-radius: 2px;
+        border: 1px solid #333;
+        box-sizing: border-box;
+        padding-left: 55px;
+        padding-right: 55px;
+        color: white !important;
+    }
+
+    .login_buttons {
+        margin: 20px auto 0 auto;
+        justify-content: center;
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+    }
+
+    #input_map_location {
+        width: 90% !important;
+        max-width: 380px;
+    }
+
+    .footer-container {
+        flex-direction: column;
+        gap: 30px;
+        text-align: center;
+    }
+
+    footer {
+        height: auto;
+        padding: 40px 20px;
+    }
+
+    .footer-section {
+        width: 100%;
+    }
+
+    .menu_header_links {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+    }
+}

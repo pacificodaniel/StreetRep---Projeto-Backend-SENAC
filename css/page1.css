@@ -1,0 +1,866 @@
+/* =====================================================
+   IMPORTS E CONFIGURAÇÕES GLOBAIS
+   ===================================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Merriweather:ital,opsz,wght@0,18..144,300..900;1,18..144,300..900&family=Oswald:wght@200..700&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+
+
+body {
+    background-repeat: no-repeat;
+    background-position: cover;
+    background-size: cover;
+}
+#novoComentario
+{
+    color: white;
+}
+
+/* =====================================================
+   HEADER – ESTRUTURA GERAL
+   ===================================================== */
+
+header {
+    width: 100%;
+    height: 300px;
+    background-color: #1A1A1D;
+    box-shadow: 0 10px 20px -10px rgba(0, 0, 0, 0.5);
+}
+
+header p {
+    color: white;
+    text-align: center;
+}
+
+/* =====================================================
+   LOGO / IDENTIDADE VISUAL
+   ===================================================== */
+
+#logo_a {
+    color: white;
+    text-align: center;
+    font-size: 40px;
+    padding-top: 10px;
+    font-family: Impact, Charcoal, 'Arial Narrow Bold', sans-serif;
+    letter-spacing: 2px;
+    text-shadow:
+        2px 2px 0 #000000,
+        4px 4px 8px rgba(0, 0, 0, 0.5);
+    transition: all 0.3s ease;
+    text-decoration: none;
+}
+
+#logo_a:hover {
+    color: #fdd835;
+    text-shadow:
+        0 0 5px #fdd835,
+        0 0 10px #fdd835,
+        0 0 20px #fdd835,
+        0 0 40px #fdd835,
+        0 0 60px #fdd835,
+        2px 2px 2px #000000;
+    -webkit-text-stroke: 0.5px #000000;
+}
+
+.page_logo {
+    margin-left: 120px;
+    margin-bottom: 40px;
+}
+
+/* =====================================================
+   ÁREA SUPERIOR DO HEADER
+   ===================================================== */
+
+.header_area1 {
+    width: 100%;
+    height: 200px;
+    display: flex;
+}
+
+.header_area1 a {
+    text-align: center;
+    align-self: center;
+    margin-top: 70px;
+    margin-left: -30px;
+    font-family: 'Oswald', sans-serif;
+}
+
+/* =====================================================
+   MENU PRINCIPAL (DESKTOP)
+   ===================================================== */
+
+.menu_header {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    height: 50px;
+    margin-top: 50px;
+}
+
+.menu_header a {
+    text-decoration: none;
+    color: white;
+    font-size: 30px;
+    padding: 10px 15px;
+    border-radius: 5px;
+    margin-top: -12px;
+}
+
+/* Hover padrão do menu */
+.menu_header a:hover {
+    color: #F59E0B;
+    transition: 0.3s;
+}
+
+/* =====================================================
+   MENU – ESTILO VISUAL (BOTÕES COM FUNDO)
+   ===================================================== */
+
+.menu_header a {
+    background-color: #222;
+    color: #fff;
+    transition: all 0.3s ease;
+    border-radius: 6px;
+    padding: 10px 20px;
+    font-size: 25px !important;
+}
+
+.menu_header a:hover {
+    background-color: #F59E0B;
+    color: #000;
+}
+
+/* Item ativo (classe ou ID legado) */
+.menu_header a.active {
+    background-color: #F59E0B !important;
+    color: #000 !important;
+}
+
+#menu_header_Mapa {
+    background-color: #F59E0B !important;
+    color: #000 !important;
+}
+
+/* =====================================================
+   LOGIN / USUÁRIO
+   ===================================================== */
+
+.login_buttons {
+    display: flex;
+    justify-content: end;
+    gap: 20px;
+    margin-right: 70px;
+    margin-top: -50px;
+}
+
+.login_information {
+    display: flex;
+    flex-direction: column;
+    margin-left: 1200px;
+    margin-top: -20px;
+    
+}
+
+.menu_header_links {
+    position: absolute;
+}
+
+#button_sair_page1 {
+    width: 90px;
+    color: white;
+    font-size: 18px;
+    margin-top: 100px;
+    margin-left: 270px;
+    margin-bottom: 100px;
+    margin-top: -105px;
+}
+
+#button_sair_page1:hover {
+    color: #1b1b1b;
+    transition: 0.3s;
+}
+
+/* =====================================================
+   MAIN / CONTEÚDO PRINCIPAL
+   ===================================================== */
+
+#input_map_location {
+    width: 800px;
+    background: linear-gradient(135deg, #1a1a1d 0%, #2a2a2d 100%);
+    border: 2px solid #ffc107;
+    border-radius: 15px;
+    padding: 20px;
+    box-shadow: 0 10px 50px rgba(0, 0, 0, 0.8), 0 0 30px rgba(255, 193, 7, 0.2);
+    backdrop-filter: blur(10px);
+}
+
+#input_map_location label {
+    color: #ffc107;
+    font-family: 'Oswald', sans-serif;
+    font-size: 14px;
+    text-transform: uppercase;
+    margin-bottom: 12px;
+    display: block;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+}
+
+#input_map_location .form-control,
+#input_map_location .form-select {
+    background: rgba(0, 0, 0, 0.3);
+    color: #fff;
+    border: 1px solid #ffc107;
+    border-radius: 8px;
+    padding: 12px;
+    transition: all 0.3s ease;
+    font-size: 14px;
+    margin-bottom: 12px;
+}
+
+#input_map_location .form-control::placeholder {
+    color: #999;
+}
+
+#input_map_location .form-control:focus,
+#input_map_location .form-select:focus {
+    background: rgba(0, 0, 0, 0.5);
+    border-color: #fdd835;
+    box-shadow: 0 0 10px rgba(255, 193, 7, 0.3);
+    outline: none;
+    color: #fff;
+}
+
+
+
+#input_map_location .form-select option {
+    background: #1a1a1d;
+    color: #fff;
+}
+
+#input_map_location .btn {
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    border: none;
+    border-radius: 8px;
+    padding: 12px 15px;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    margin-top: 8px;
+    margin-right: 8px;
+}
+
+#input_map_location .btn-warning {
+    background: linear-gradient(135deg, #ffc107 0%, #fdd835 100%);
+    color: #000;
+}
+
+#input_map_location .btn-warning:hover {
+    background: linear-gradient(135deg, #fdd835 0%, #ffeb3b 100%);
+    box-shadow: 0 0 20px rgba(255, 193, 7, 0.6);
+    transform: translateY(-2px);
+}
+
+#input_map_location .btn-warning:active {
+    transform: translateY(0);
+}
+
+.content1 {
+    display: flex;
+    justify-content: center;
+    background-color: #111;
+}
+
+main {
+    text-align: center;
+    width: 100%;
+    height: 1100px;
+}
+
+.filterarea {
+    width: 100%;
+    height: 100px;
+    background-color: #111;
+}
+
+.filtrotipo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+width: 50px !important;
+    
+}
+
+.pfilter {
+    color: white !important;
+}
+
+/* =====================================================
+   FORMULÁRIO DE OCORRÊNCIA (JS)
+   ===================================================== */
+
+#formOcorrencia {
+    position: absolute;
+    display: none;
+    background: linear-gradient(135deg, #1a1a1d 0%, #2a2a2d 100%);
+    border: 2px solid #ffc107;
+    border-radius: 15px;
+    padding: 30px;
+    box-shadow: 0 10px 50px rgba(0, 0, 0, 0.8), 0 0 30px rgba(255, 193, 7, 0.2);
+    z-index: 1000;
+    min-width: 300px;
+    backdrop-filter: blur(10px);
+}
+
+#btn-denunciar-popup
+{
+    margin-top: 10px;
+    border-radius: 10px;
+    font-weight: 1000;
+
+
+}
+#btn-denunciar-popup:hover
+{
+    background: linear-gradient(135deg, #fdd835 0%, #ffeb3b 100%);
+    box-shadow: 0 0 20px rgba(255, 193, 7, 0.6);
+    transform: translateY(-2px);
+
+}
+
+#formOcorrencia h5 {
+    color: #ffc107;
+    font-family: 'Oswald', sans-serif;
+    font-size: 22px;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+    border-bottom: 2px solid #ffc107;
+    padding-bottom: 15px;
+    letter-spacing: 1px;
+}
+
+#formOcorrencia label {
+    color: #e0e0e0;
+    font-weight: 600;
+    margin-bottom: 8px;
+    display: block;
+    font-size: 14px;
+}
+
+#formOcorrencia .form-control,
+#formOcorrencia .form-select {
+    background: rgba(0, 0, 0, 0.3);
+    color: #fff;
+    border: 1px solid #ffc107;
+    border-radius: 8px;
+    padding: 12px;
+    transition: all 0.3s ease;
+    font-size: 14px;
+}
+
+#formOcorrencia .form-control::placeholder {
+    color: #999;
+}
+
+#formOcorrencia .form-control:focus,
+#formOcorrencia .form-select:focus {
+    background: rgba(0, 0, 0, 0.5);
+    border-color: #fdd835;
+    box-shadow: 0 0 10px rgba(255, 193, 7, 0.3);
+    outline: none;
+    color: #fff;
+}
+
+#formOcorrencia .form-select option {
+    background: #1a1a1d;
+    color: #fff;
+}
+
+#formOcorrencia .d-flex button {
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    border: none;
+    border-radius: 8px;
+    padding: 12px 24px;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    flex: 1;
+}
+
+#formOcorrencia button[type="submit"] {
+    background: linear-gradient(135deg, #ffc107 0%, #fdd835 100%);
+    color: #000;
+}
+
+#formOcorrencia button[type="submit"]:hover {
+    background: linear-gradient(135deg, #fdd835 0%, #ffeb3b 100%);
+    box-shadow: 0 0 20px rgba(255, 193, 7, 0.6);
+    transform: translateY(-2px);
+}
+
+#formOcorrencia button[type="submit"]:active {
+    transform: translateY(0);
+}
+
+#formOcorrencia button[type="button"] {
+    background: #444;
+    color: #fff;
+}
+
+#formOcorrencia button[type="button"]:hover {
+    background: #555;
+    transform: translateY(-2px);
+}
+
+#formOcorrencia button[type="button"]:active {
+    transform: translateY(0);
+}
+
+/* =====================================================
+   COMENTÁRIOS - ESTILO MELHORADO
+   ===================================================== */
+
+.comentarios-lateral {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 90%;
+    max-width: 500px;
+    background: linear-gradient(135deg, #1a1a1d 0%, #2a2a2d 100%);
+    border: 2px solid #ffc107;
+    border-radius: 15px;
+    padding: 30px;
+    box-shadow: 0 10px 50px rgba(0, 0, 0, 0.8), 0 0 30px rgba(255, 193, 7, 0.2);
+    z-index: 2000;
+    max-height: 85vh;
+    overflow-y: auto;
+    backdrop-filter: blur(10px);
+}
+
+.comentarios-lateral h4 {
+    color: #ffc107;
+    font-family: 'Oswald', sans-serif;
+    font-size: 22px;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+    border-bottom: 2px solid #ffc107;
+    padding-bottom: 15px;
+    letter-spacing: 1px;
+}
+
+.comentarios-lateral p {
+    color: #e0e0e0;
+    font-size: 14px;
+    line-height: 1.6;
+    margin-bottom: 12px;
+    padding: 12px;
+    background: rgba(255, 193, 7, 0.05);
+    border-left: 3px solid #ffc107;
+    border-radius: 5px;
+}
+
+.comentarios-lateral p strong {
+    color: #ffc107;
+    font-weight: 600;
+}
+
+.comentarios-lateral p em {
+    color: #90caf9;
+    font-style: italic;
+}
+
+.comentarios-lateral .sem-comentarios {
+    color: #999;
+    text-align: center;
+    padding: 20px;
+    font-style: italic;
+    background: rgba(255, 193, 7, 0.05);
+    border-radius: 8px;
+    margin-bottom: 20px;
+}
+
+.comentarios-lateral .comentarios-container {
+    max-height: 300px;
+    overflow-y: auto;
+    margin-bottom: 20px;
+    padding: 10px 0;
+    border-bottom: 1px solid rgba(255, 193, 7, 0.2);
+}
+
+.comentarios-lateral textarea {
+    background: rgba(0, 0, 0, 0.3);
+    color: #fff;
+    border: 1px solid #ffc107;
+    border-radius: 8px;
+    padding: 12px;
+    font-size: 14px;
+    resize: vertical;
+    margin-bottom: 15px;
+    transition: all 0.3s ease;
+}
+
+.comentarios-lateral textarea:focus {
+    background: rgba(0, 0, 0, 0.5);
+    border-color: #fdd835;
+    box-shadow: 0 0 10px rgba(255, 193, 7, 0.3);
+    outline: none;
+}
+
+.comentarios-lateral .form-select {
+    background: rgba(0, 0, 0, 0.3);
+    color: #fff;
+    border: 1px solid #ffc107;
+    border-radius: 8px;
+    margin-bottom: 15px;
+    padding: 10px;
+    transition: all 0.3s ease;
+}
+
+.comentarios-lateral .form-select:focus {
+    background: rgba(0, 0, 0, 0.5);
+    border-color: #fdd835;
+    box-shadow: 0 0 10px rgba(255, 193, 7, 0.3);
+    outline: none;
+}
+
+.comentarios-lateral .form-select option {
+    background: #1a1a1d;
+    color: #fff;
+}
+
+.comentarios-lateral button {
+    width: 100%;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    border: none;
+    border-radius: 8px;
+    padding: 12px;
+    margin-bottom: 10px;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.comentarios-lateral button.btn-warning {
+    background: #ffc107;
+    color: #000;
+}
+
+.comentarios-lateral button.btn-warning:hover {
+    background: #fdd835;
+    box-shadow: 0 0 15px rgba(255, 193, 7, 0.5);
+    transform: translateY(-2px);
+}
+
+.comentarios-lateral button.btn-secondary {
+    background: #444;
+    color: #fff;
+}
+
+.comentarios-lateral button.btn-secondary:hover {
+    background: #555;
+    transform: translateY(-2px);
+}
+
+.comentarios-lateral button:active {
+    transform: translateY(0);
+}
+
+/* Scrollbar estilizada */
+.comentarios-lateral::-webkit-scrollbar {
+    width: 8px;
+}
+
+.comentarios-lateral::-webkit-scrollbar-track {
+    background: rgba(0, 0, 0, 0.3);
+    border-radius: 10px;
+}
+
+.comentarios-lateral::-webkit-scrollbar-thumb {
+    background: #ffc107;
+    border-radius: 10px;
+}
+
+.comentarios-lateral::-webkit-scrollbar-thumb:hover {
+    background: #fdd835;
+}
+
+/* =====================================================
+   FOOTER
+   ===================================================== */
+
+footer {
+    width: 100%;
+    height: 400px;
+    background-color: #1c1c1c;
+    box-shadow: 0 -10px 20px -10px rgba(0, 0, 0, 0.5);
+    color: white;
+    text-align: center;
+    padding-top: 40px;
+}
+
+.site-footer {
+    background-color: #111;
+    color: #fff;
+    padding: 100px 20px;
+    font-family: Arial, sans-serif;
+    font-size: 14px;
+}
+
+.footer-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.footer-section {
+    flex: 1 1 200px;
+    margin: 10px;
+}
+
+.footer-section h4 {
+    color: #fdd835;
+    margin-bottom: 10px;
+    font-size: 16px;
+    text-transform: uppercase;
+}
+
+.footer-section ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-section ul li {
+    margin-bottom: 8px;
+}
+
+.footer-section ul li a {
+    color: #fff;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.footer-section ul li a:hover {
+    color: #fdd835;
+}
+
+.social-links li {
+    display: inline-block;
+    margin-right: 10px;
+}
+
+/* =====================================================
+   RESPONSIVIDADE (MOBILE)
+   ===================================================== */
+
+@media (max-width: 768px) {
+
+    header {
+        height: 800px;
+        padding-bottom: 20px;
+        text-align: center;
+    }
+
+    .header_area1 {
+        flex-direction: column;
+        align-items: center;
+        height: 200px;
+        margin-bottom: 300px;
+    }
+
+    .page_logo {
+        margin: 0;
+        width: 180px !important;
+        height: auto !important;
+        margin-bottom: -40px;
+    }
+
+    #logo_a {
+        font-size: 28px;
+        margin-top: 10px;
+    }
+
+    .menu_header {
+        flex-direction: column;
+        gap: 10px;
+        margin-top: 20px;
+        height: auto;
+        width: 100%;
+        align-items: center;
+    }
+
+    .menu_header a {
+        font-size: 20px;
+        width: 90%;
+        background: #222;
+        padding: 12px 0;
+        border-radius: 2px;
+        border: 1px solid #333;
+        box-sizing: border-box;
+        padding-left: 55px;
+        padding-right: 55px;
+        color: white !important;
+    }
+
+    .login_buttons {
+        margin: 20px auto 0 auto;
+        justify-content: center;
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+    }
+
+    #input_map_location {
+        width: 90% !important;
+        max-width: 380px;
+    }
+
+    .footer-container {
+        flex-direction: column;
+        gap: 30px;
+        text-align: center;
+    }
+
+    footer {
+        height: auto;
+        padding: 40px 20px;
+    }
+
+    .footer-section {
+        width: 100%;
+    }
+
+    .menu_header_links {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+    }
+}
+
+/* =====================================================
+   POPUPS DO MAPA - ESTILO MELHORADO
+   ===================================================== */
+
+.leaflet-popup-content-wrapper {
+    background: linear-gradient(135deg, #1a1a1d 0%, #2a2a2d 100%) !important;
+    border: 2px solid #ffc107 !important;
+    border-radius: 12px !important;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.9), 0 0 30px rgba(255, 193, 7, 0.2) !important;
+    padding: 0 !important;
+}
+
+.leaflet-popup-content {
+    color: #e0e0e0;
+    margin: 0 !important;
+    padding: 20px !important;
+    font-family: 'Roboto', sans-serif;
+    font-size: 14px;
+}
+
+.leaflet-popup-content strong {
+    color: #ffc107;
+    font-size: 16px;
+    display: block;
+    margin-bottom: 8px;
+    text-transform: uppercase;
+    font-family: 'Oswald', sans-serif;
+    letter-spacing: 0.5px;
+}
+
+.leaflet-popup-content em {
+    color: #90caf9;
+    font-style: italic;
+    display: block;
+    margin-bottom: 10px;
+    font-size: 13px;
+}
+
+.leaflet-popup-content p {
+    color: #d0d0d0;
+    line-height: 1.5;
+    margin-bottom: 15px;
+    padding: 10px;
+    background: rgba(255, 193, 7, 0.05);
+    border-left: 3px solid #ffc107;
+    border-radius: 4px;
+}
+
+.leaflet-popup-content .stats {
+    display: flex;
+    gap: 20px;
+    margin-bottom: 15px;
+    padding: 10px 0;
+    border-top: 1px solid rgba(255, 193, 7, 0.2);
+    border-bottom: 1px solid rgba(255, 193, 7, 0.2);
+}
+
+.leaflet-popup-content .stat-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-weight: 600;
+}
+
+.leaflet-popup-content .stat-item span  {
+    /* color: #ffc107; */
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.cont_pos_ocor {
+    color: #4caf50 !important;
+}
+.cont_neg_ocor {
+    color: #f44336 !important;
+}
+
+.leaflet-popup-content .btn-avaliacoes {
+    width: 100%;
+    background: linear-gradient(135deg, #ffc107 0%, #fdd835 100%) !important;
+    color: #000 !important;
+    border: none !important;
+    border-radius: 8px !important;
+    padding: 12px !important;
+    font-weight: 600 !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0.5px !important;
+    cursor: pointer !important;
+    transition: all 0.3s ease !important;
+    font-size: 13px !important;
+}
+
+.leaflet-popup-content .btn-avaliacoes:hover {
+    background: linear-gradient(135deg, #fdd835 0%, #ffeb3b 100%) !important;
+    box-shadow: 0 0 20px rgba(255, 193, 7, 0.6) !important;
+    transform: translateY(-2px) !important;
+}
+
+.leaflet-popup-content .btn-avaliacoes:active {
+    transform: translateY(0) !important;
+}
+
+.leaflet-popup-tip {
+    background: #1a1a1d !important;
+    border-color: #ffc107 !important;
+}
+
+.leaflet-popup-close-button {
+    color: #ffc107 !important;
+    font-size: 24px !important;
+    width: auto !important;
+    height: auto !important;
+    padding: 5px !important;
+    line-height: 1 !important;
+    transition: all 0.3s ease !important;
+}
+
+.leaflet-popup-close-button:hover {
+    color: #fdd835 !important;
+    text-shadow: 0 0 10px rgba(255, 193, 7, 0.5) !important;
+}
+
+

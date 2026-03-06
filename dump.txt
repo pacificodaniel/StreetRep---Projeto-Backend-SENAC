@@ -1,0 +1,156 @@
+  < script >
+      // Cria o mapa centralizado
+      var map = L.map('map').setView([-23.5505, -46.6333], 13); // São Paulo
+
+  // Adiciona o mapa do OpenStreetMap
+  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      attribution: '&copy; OpenStreetMap contributors'
+  }).addTo(map);
+
+  //   // Adiciona um marcador de teste
+  //   L.marker([-23.5505, -46.6333]).addTo(map)
+  //     .bindPopup('<b>Ocorrência Exemplo</b><br>Algo aconteceu aqui.')
+  //     .openPopup();
+  // ------------------------------------------------------------------------------------
+  //ABRIR FORM AO CLICAR NO MAPA 
+  window.addEventListener('DOMContentLoaded', () => {
+      const formBox = document.getElementById('formOcorrencia');
+      const form = document.getElementById('ocorrenciaForm');
+      const btnCancelar = document.getElementById('cancelar');
+
+      // Exibir form ao clicar no mapa
+      map.on('click', function(e) {
+          formBox.style.display = 'block';
+          document.getElementById('lat').value = e.latlng.lat;
+          document.getElementById('lng').value = e.latlng.lng;
+      });
+
+      // Fechar form com o botão "Cancelar"
+      btnCancelar.addEventListener('click', function() {
+          formBox.style.display = 'none';
+          form.reset(); // limpa os campos também
+      });
+
+      // Submeter form via fetch
+      form.addEventListener('submit', function(e) {
+          e.preventDefault();
+
+          if (!confirm('Tem certeza que deseja registrar essa ocorrência?')) return;
+
+          const dados = {
+              titulo: document.getElementById('titulo').value,
+              descricao: document.getElementById('descricao').value,
+              gravidade: document.getElementById('gravidade').value,
+              latitude: document.getElementById('lat').value,
+              longitude: document.getElementById('lng').value
+          };
+
+          fetch('registrar_ocorrencia.php', {
+                  method: 'POST',
+                  headers: { 'Content-Type': 'application/json' },
+                  body: JSON.stringify(dados)
+              })
+              .then(res => res.json())
+              .then(resp => {
+                  alert(resp.mensagem);
+                  formBox.style.display = 'none';
+                  form.reset();
+
+                  // adiciona marcador no mapa
+                  const marker = L.marker([dados.latitude, dados.longitude]).addTo(map);
+                  marker.bindPopup(`<strong>${dados.titulo}</strong><br>${dados.descricao}`);
+              });
+      });
+  });
+
+  //ENVIO AO BACKEND 
+  document.getElementById('ocorrenciaForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+
+      if (!confirm('Tem certeza que deseja registrar essa ocorrência?')) return;
+
+      const dados = {
+          titulo: document.getElementById('titulo').value,
+          descricao: document.getElementById('descricao').value,
+          gravidade: document.getElementById('gravidade').value,
+          latitude: document.getElementById('lat').value,
+          longitude: document.getElementById('lng').value
+      };
+
+      fetch('registrar_ocorrencia.php', {
+              method: 'POST',
+              headers: { 'Content-Type': 'application/json' },
+              body: JSON.stringify(dados)
+          })
+          .then(res => res.json())
+          .then(resp => {
+              alert(resp.mensagem);
+              document.getElementById('formOcorrencia').style.display = 'none';
+
+              // Adiciona o marcador no mapa em tempo real
+              const marker = L.marker([dados.latitude, dados.longitude]).addTo(map);
+              marker.bindPopup(`<strong>${dados.titulo}</strong><br>${dados.descricao}`);
+          });
+  });
+
+
+  <
+  /script> <
+  div id = "formOcorrencia"
+  class = "form-container"
+  style = "display:none; position:absolute; top:50px; left:50%; transform:translateX(-50%); background:#fff; padding:1rem; border-radius:8px; box-shadow:0 4px 10px rgba(0,0,0,0.3); z-index:1000;" >
+      <
+      h5 > Nova Ocorrência < /h5> <
+      form id = "ocorrenciaForm" >
+      <
+      input type = "hidden"
+  id = "lat" >
+      <
+      input type = "hidden"
+  id = "lng" >
+
+      <
+      div class = "mb-2" >
+      <
+      label > Título: < /label> <
+      input type = "text"
+  id = "titulo"
+  class = "form-control"
+  required >
+      <
+      /div>
+
+  <
+  div class = "mb-2" >
+      <
+      label > Descrição: < /label> <
+      textarea id = "descricao"
+  class = "form-control"
+  required > < /textarea> <
+      /div>
+
+  <
+  div class = "mb-2" >
+      <
+      label > Gravidade: < /label> <
+      select id = "gravidade"
+  class = "form-select" >
+      <
+      option value = "inofensivo" > Inofensivo < /option> <
+      option value = "baixo" > Baixo < /option> <
+      option value = "medio" > Médio < /option> <
+      option value = "alto" > Alto < /option> <
+      /select> <
+      /div>
+
+  <
+  div class = "d-flex justify-content-end gap-2" >
+      <
+      button type = "button"
+  class = "btn btn-secondary"
+  id = "cancelar" > Cancelar < /button> <
+      button type = "submit"
+  class = "btn btn-warning" > Registrar < /button> <
+      /div> <
+      /form> <
+      /div>

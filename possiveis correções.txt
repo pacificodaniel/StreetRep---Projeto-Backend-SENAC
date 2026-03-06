@@ -1,0 +1,43 @@
+function abrirComentarios(id_ocorrencia) {
+    fetch(`listar_comentarios.php?id_ocorrencia=${id_ocorrencia}`)
+    .then(res => res.json())
+    .then(comentarios => {
+        // garante que o título da ocorrência seja pego do primeiro comentário ou fallback
+        let titulo = comentarios.length > 0 ? comentarios[0].titulo : "Sem título";
+
+        let html = `<h4 class="text-warning">Comentários da ocorrência: ${titulo}</h4>`;
+
+        comentarios.forEach(c => {
+            html += `<p><strong>${c.usuario}</strong> (${c.tipo}): ${c.comentario}</p>`;
+        });
+
+        html += `
+            <select id="tipoComentario" class="form-select mb-2">
+                <option value="real">✅ Positiva</option>
+                <option value="falso">❌ Negativa</option>
+            </select>
+            <textarea id="novoComentario" class="form-control mb-2" placeholder="Digite seu comentário"></textarea>
+            <button id="btnEnviarComentario" class="btn btn-warning w-100 mb-2">Enviar</button>
+            <button id="btnFecharComentario" class="btn btn-secondary w-100">Fechar</button>
+        `;
+
+        const div = document.getElementById('comentariosDiv');
+        div.innerHTML = html;
+        div.style.display = 'block';
+
+        // listener do botão de enviar
+        document.getElementById('btnEnviarComentario').addEventListener('click', function() {
+            const tipo = document.getElementById('tipoComentario').value;
+            adicionarComentario(id_ocorrencia, tipo);
+        });
+
+        // listener do botão de fechar
+        document.getElementById('btnFecharComentario').addEventListener('click', function() {
+            fecharComentarios();
+        });
+    })
+    .catch(err => {
+        console.error(err);
+        alert('Erro ao carregar os comentários. Veja o console.');
+    });
+}
