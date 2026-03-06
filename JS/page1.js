@@ -24,7 +24,7 @@ const usuarioVerificado = window.AppData && window.AppData.usuarioVerificado ===
 // ==================================================
 (function() {
     // Garantir que tudo execute após o DOM e após bibliotecas estarem prontas
-    document.addEventListener('DOMContentLoaded', () => {
+document.addEventListener('DOMContentLoaded', () => {
 
 
 
@@ -320,7 +320,6 @@ const usuarioVerificado = window.AppData && window.AppData.usuarioVerificado ===
             });
         }
 
-<<<<<<< HEAD
                                         document.addEventListener('click', function (e) {
     const btn = e.target.closest('.btn-denunciar');
     if (!btn) return;
@@ -350,8 +349,6 @@ const usuarioVerificado = window.AppData && window.AppData.usuarioVerificado ===
 
 
 
-=======
->>>>>>> 595ee8716b01475fc9c1f245ca0a113e079d05e7
         // ----------------------
         // Carregar ocorrências do servidor e criar marcadores
         // ----------------------
@@ -377,13 +374,13 @@ const usuarioVerificado = window.AppData && window.AppData.usuarioVerificado ===
 
 
                     function gerarPopupHTML(m) {
-                        const imagemHTML = m.imagem
-                            ? `<img src="${escapeHtml(m.imagem)}"
-                                alt="Imagem da ocorrência"
-                                style="width:100%; max-height:180px; object-fit:cover; border-radius:6px; margin:6px 0;">`
-                            : '';
+                         const imagemHTML = m.imagem
+        ? `<img src="${escapeHtml(m.imagem)}"
+                alt="Imagem da ocorrência"
+                style="width:100%; max-height:180px; object-fit:cover; border-radius:6px; margin:6px 0;">`
+        : '';
                         return `
-              <strong>${escapeHtml(m.titulo)}</strong>
+              <strong> ${escapeHtml(m.titulo)}</strong>
               ${imagemHTML}
               <em>Gravidade: ${escapeHtml(m.gravidade)}</em>
               <p>${escapeHtml(m.descricao)}</p>
@@ -397,9 +394,17 @@ const usuarioVerificado = window.AppData && window.AppData.usuarioVerificado ===
               </div>
               <button class="btn-avaliacoes btn btn-warning" data-id="${m.ocorrenciaId}">
                 <i class="fas fa-comments"></i> Comentários / Avaliar
+                
               </button>
+              <button class="btn btn-sm btn-warning btn-denunciar" id="btn-denunciar-popup" id="b"data-id="${m.ocorrenciaId}">
+               <i class="fa-solid fa-triangle-exclamation"></i> Denunciar
+              </button>
+
             `;
+    
+
                     }
+                    
 
                     marker.bindPopup(gerarPopupHTML(marker));
                     marker.addTo(map);
@@ -488,9 +493,9 @@ const usuarioVerificado = window.AppData && window.AppData.usuarioVerificado ===
             .catch(err => {
                 console.error('Erro ao carregar ocorrências:', err);
             })
-            .finally(() => {
-                LoadingSpinner.hide();
-            });
+             .finally(() => {
+        LoadingSpinner.hide();
+    });
 
         // ----------------------
         // Função para atualizar contadores (expor publicamente)
@@ -582,6 +587,7 @@ const usuarioVerificado = window.AppData && window.AppData.usuarioVerificado ===
         alert(resp.mensagem);
         formBox.style.display = 'none';
         form.reset();
+        
 
         const lat = document.getElementById('lat').value;
 const lng = document.getElementById('lng').value;
@@ -601,7 +607,6 @@ marker.bindPopup(
 
         })();
 
-<<<<<<< HEAD
 
 
 
@@ -670,16 +675,10 @@ if (form && preview) {
 
 
         
-=======
->>>>>>> 595ee8716b01475fc9c1f245ca0a113e079d05e7
         // ----------------------
         // Fim do DOMContentLoaded
         // ----------------------
     }); // end DOMContentLoaded
-<<<<<<< HEAD
 })(); // end IIFE
 
   
-=======
-})(); // end IIFE
->>>>>>> 595ee8716b01475fc9c1f245ca0a113e079d05e7
